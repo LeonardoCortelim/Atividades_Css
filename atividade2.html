@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>   
+   <title>Exemplo especificidade de seletores</title>
+   <style>
+      /*regra 1*/ li{color:red;}
+      /*regra 2*/ .churras{color:green;}
+      /*regra 3*/ .fruta{color:gray}
+      /*regra 4*/ li+li.churras{color: black;}
+      /*regra 5*/ .churras[draggable="true"]{color: magenta;}
+      /*regra 6*/ #lip1,#lip2,#lip3{color:blue}
+      /*regra 7*/ #lip3.fruta{color:orange}
+      /*regra 8*/ ol>li.churras#lip5{color:purple}
+   </style>
+</head>
+<body>   
+   <ol>
+      <!--item 1--> <li id="lip0">Abacaxi</li>
+      <!--item 2--> <li class="fruta">Melão</li>
+      <!--item 3--> <li id="lip2" class="fruta">Pera</li>
+      <!--item 4--> <li id="lip3" class="fruta">Uva</li>
+      <!--item 5--> <li id="lip4" class="fruta">Maçã</li>
+      <!--item 6--> <li class="churras">Carne</li>
+      <!--item 7--> <li class="churras">Linguiça</li>
+      <!--item 8--> <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+   </ol>   
+
+   <h2>Explicação das regras</h2>
+   <p>1 - seletor de elemento (todos os li)</p>
+   <p>2 - seletor de classe (.churras)</p>
+   <p>3 - seletor de classe (.fruta)</p>
+   <p>4 - seletor de elemento + classe (li+li.churras)</p>
+   <p>5 - seletor de classe + atributo (.churras[draggable])</p>
+   <p>6 - seletor por id (#lip1, #lip2, #lip3)</p>
+   <p>7 - seletor por id + classe (#lip3.fruta)</p>
+   <p>8 - seletor muito específico, mas não existe #lip5</p>
+</body>
+</html>
