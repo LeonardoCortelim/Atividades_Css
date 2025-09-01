@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4a - Display</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        div {
+            padding: 32px;
+            width: 200px; /* largura fixa para visualizar melhor */
+        }
+
+        .big {
+            display: inline-block; /* container ocupa só o espaço do conteúdo */
+        }
+
+        #d1 {
+            background-color: blue;
+        }
+
+        #d2 {
+            background-color: green;
+        }
+
+        #d3 {
+            background-color: red;
+        }
+
+        #d4 {
+            background-color: yellow;
+        }
+
+        .explicacao {
+            margin: 20px;
+            padding: 16px;
+            background: #f0f0f0;
+            border-left: 5px solid #333;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="explicacao">
+        <h2>Explicação:</h2>
+        <p>
+            A div com a classe big está com display inline-block, 
+            então ela ocupa apenas o espaço do conteúdo, não a largura inteira da tela.
+        </p>
+        <p>
+            As divs internas (d1, d2, d3, d4) são blocos por padrão, 
+            o que faz com que cada uma ocupe toda a largura disponível dentro do container.
+        </p>
+        <p>
+            O resultado é que elas ficam empilhadas verticalmente, 
+            uma embaixo da outra, cada uma com sua cor e tamanho definido 
+            pelo padding e pela largura.
+        </p>
+    </div>
+
+    <div class="big">
+        <div id="d1">1</div>
+        <div id="d2">2</div>
+        <div id="d3">3</div>
+        <div id="d4">4</div>
+    </div>
+</body>
+
+</html>
