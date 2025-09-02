@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+    html,body{margin:0px;padding: 0px;}
+   .box{
+    display: inline-block;
+    height: 20vw;
+    width: 20vw;
+    border: 1px solid black;
+
+   }
+#item1{background-color: blue;}
+#item2{background-color: green;}
+#item3{background-color: red;}
+#item4{background-color: yellow;}
+#item5{background-color: magenta;}
+
+#item1{}
+#item2{position: fixed; right:0px}
+#item3{position: fixed; right: 0px; bottom: 0px;}
+#item4{position: fixed; left: 0px; bottom: 0px;}
+#item5{position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+</style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="item1" class="box">1</div>
+            <div id="item2" class="box">2</div>
+            <div id="item3" class="box">3</div>
+            <div id="item4" class="box">4</div>
+            <div id="item5" class="box">5</div>
+
+        </div>
+
+    </body>
+</html>
