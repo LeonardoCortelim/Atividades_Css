@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+.quadrado{
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    animation: move 3s infinite alternate;
+    
+    
+}
+
+@keyframes move {
+
+    0%{
+        background-color: blue;
+        top: 0px;
+        left: 0px;
+
+    }
+    25%{
+      background-color: red ;
+      top: 0px;
+      left: 2350px;
+    }
+
+    50%{
+        background-color: magenta;
+        top: 1050px;
+        left: 2350px;
+    }
+
+    75%{
+        background-color: purple;
+        top: 1050px;
+        left: 0px;
+    }
+
+    100%{
+        background-color: yellow;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+
+</style>
+
+    <body>
+        <div class="quadrado">
+            <div id="item1" class="box">1</div>
+        </div>
+    </body>
+</html>
