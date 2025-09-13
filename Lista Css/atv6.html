@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nave com Foguinho</title>
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      overflow:hidden;
+    }
+    .ship{
+      position:absolute;
+      left:50%;
+      bottom:-100px;
+      width:60px;
+      height:120px;
+      margin-left:-30px;
+      animation: rise 5s linear infinite;
+    }
+    @keyframes rise{
+      from{bottom:-120px;}
+      to{bottom:110%;}
+    }
+    .flame{
+      animation: flameflicker 0.3s infinite alternate;
+    }
+    @keyframes flameflicker{
+      from{transform:scaleY(0.9); opacity:0.8;}
+      to{transform:scaleY(1.2); opacity:1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="ship">
+    <svg viewBox="0 0 60 120" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="30,0 50,60 10,60" fill="silver" stroke="gray" stroke-width="2"/>
+      <rect x="20" y="60" width="20" height="40" fill="lightgray" stroke="gray" stroke-width="2"/>
+      <polygon class="flame" points="30,100 40,120 20,120" fill="orange"/>
+    </svg>
+  </div>
+</body>
+</html>
