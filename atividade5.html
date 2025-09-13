@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Layout Flex</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header, footer {
+      background: #9acd32;
+      padding: 20px;
+    }
+
+    main {
+      display: flex;
+      min-height: 300px; 
+    }
+
+    article {
+      flex: 2; 
+      background: #fff;
+      padding: 10px;
+    }
+
+    aside {
+      flex: 1; 
+      background: #fdf7e3;
+      padding: 10px;
+    }
+
+    nav {
+      flex: 1;
+      background: #d9ead3;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>Header</header>
+
+  <main>
+    <article>Article</article>
+    <aside>Aside</aside>
+    <nav>Nav</nav>
+  </main>
+
+  <footer>Footer</footer>
+</body>
+</html>
