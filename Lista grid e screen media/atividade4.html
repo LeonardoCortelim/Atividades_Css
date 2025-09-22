@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Responsivo</title>
+  <style>
+    body {
+      margin: 0;
+      display: grid;
+      min-height: 100vh;
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: auto auto 1fr auto auto;
+      grid-template-areas:
+        "header header header"
+        "left banner right"
+        "left main right"
+        "left low right"
+        "footer footer footer";
+      gap: 5px;
+    }
+    header { grid-area: header; background: orange; text-align: center; }
+    .banner { grid-area: banner; background: red; text-align: center; }
+    .left { grid-area: left; background: green; text-align: center; }
+    .right { grid-area: right; background: gold; text-align: center; }
+    .main { grid-area: main; background: dodgerblue; text-align: center; }
+    .low { grid-area: low; background: lightgreen; text-align: center; }
+    footer { grid-area: footer; background: blue; color: white; text-align: center; }
+
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 1fr auto auto auto;
+        grid-template-areas:
+          "header"
+          "banner"
+          "left"
+          "main"
+          "right"
+          "low"
+          "footer";
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>Header</header>
+  <div class="banner">Banner</div>
+  <aside class="left">Left Aside</aside>
+  <aside class="right">Right Aside</aside>
+  <main class="main">Main Content</main>
+  <div class="low">Low Content</div>
+  <footer>Footer</footer>
+</body>
+</html>

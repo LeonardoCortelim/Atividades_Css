@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout com CSS Grid</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      grid-template-rows: 100px 1fr;
+      grid-template-areas:
+        "a a b"
+        "c d d";
+      gap: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .a { grid-area: a; background: #444; color: #fff; display: flex; align-items: center; justify-content: center; }
+    .b { grid-area: b; background: #444; color: #fff; display: flex; align-items: center; justify-content: center; }
+    .c { grid-area: c; background: #444; color: #fff; display: flex; align-items: center; justify-content: center; }
+    .d {
+      grid-area: d;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .d div {
+      background: #bbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="a">A</div>
+  <div class="b">B</div>
+  <div class="c">C</div>
+  <div class="d">
+    <div>E</div>
+    <div>F</div>
+    <div>G</div>
+    <div>M</div>
+    <div>I</div>
+    <div>J</div>
+  </div>
+</body>
+</html>
