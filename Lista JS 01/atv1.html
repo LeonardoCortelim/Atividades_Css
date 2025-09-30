@@ -4,13 +4,10 @@
   <meta charset="UTF-8">
   <title id="titulo-aba">O que é JavaScript?</title>
   <script>
-    // Exibe uma saudação ao carregar a página
     alert("Bem-vindo ao mundo do JavaScript!");
 
-    // Registra uma mensagem no console
     console.log("Página carregada com sucesso. Explorando o JavaScript!");
 
-    // Exibe a hora atual no parágrafo com id 'hora-atual'
     window.onload = function() {
       const agora = new Date();
       document.getElementById("hora-atual").innerHTML = "Hora atual: " + agora.toLocaleTimeString();
