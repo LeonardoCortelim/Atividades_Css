@@ -1,20 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O que é JavaScript?</title>
+  <meta charset="UTF-8">
+  <title id="titulo-aba">O que é JavaScript?</title>
+  <script>
+    // Exibe uma saudação ao carregar a página
+    alert("Bem-vindo ao mundo do JavaScript!");
+
+    // Registra uma mensagem no console
+    console.log("Página carregada com sucesso. Explorando o JavaScript!");
+
+    // Exibe a hora atual no parágrafo com id 'hora-atual'
+    window.onload = function() {
+      const agora = new Date();
+      document.getElementById("hora-atual").innerHTML = "Hora atual: " + agora.toLocaleTimeString();
+    };
+  </script>
 </head>
 <body>
-    <h1>O que é JavaScript?</h1>
+  <h1 id="titulo-principal">O que é JavaScript?</h1>
 
-    <p>
-        
+  <p id="motivacao">
+    O JavaScript foi criado em 1995 por Brendan Eich com o objetivo de tornar as páginas web interativas. 
+    Ele surgiu como uma linguagem leve e dinâmica que pudesse ser executada diretamente no navegador, 
+    permitindo animações, validações de formulários e interações em tempo real.
+  </p>
 
+  <p id="execucao">
+    A execução no navegador ocorre no lado do cliente, ou seja, no dispositivo do usuário. 
+    Já no servidor, o JavaScript pode ser usado com tecnologias como Node.js, permitindo que o código seja executado 
+    antes de ser enviado ao navegador, geralmente para manipular dados, acessar bancos de dados ou lidar com autenticação.
+  </p>
 
+  <p id="sandbox">
+    O conceito de sandbox no navegador refere-se a um ambiente isolado onde o JavaScript é executado. 
+    Isso impede que scripts maliciosos acessem diretamente o sistema do usuário, garantindo maior segurança.
+  </p>
 
+  <p id="objetos-globais">
+    Alguns objetos globais importantes em JavaScript são:
+    <ul>
+      <li><strong>document</strong>: permite acessar e manipular o conteúdo HTML da página.</li>
+      <li><strong>console</strong>: usado para registrar mensagens e depurar o código.</li>
+      <li><strong>alert</strong>: exibe mensagens em pop-ups para o usuário.</li>
+    </ul>
+  </p>
 
-    </p>
+  <p id="hora-atual"></p>
 </body>
-
 </html>
