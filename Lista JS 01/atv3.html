@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt e Alert</title>
+  <script>
+    function perguntarNome() {
+        
+        nome = prompt("Qual é o seu nome?");
+      if (nome) {
+        alert(`Olá, ${nome}! Seja bem-vindo(a)!`);
+      } else {
+        alert("Você não inseriu um nome.");
+      }
+    }
+  </script>
+</head>
+<body onload="perguntarNome()">
+</body>
+</html>

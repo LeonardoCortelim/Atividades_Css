@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <button id="btn">click em min</button>
+</body>
+
+<script>
+    let btn=document.querySelector("btn");
+    btn.addEventListener("click",()=>{
+        btn.innerHTML=i;
+        i++;
+    })
+
+    document.body.addEventListener("keydown",()=>{
+        console.log("tecla pressionada")
+    });
+</script>
+</html>
