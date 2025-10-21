@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Números Primos em um Intervalo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      max-width: 450px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input {
+      width: 100px;
+      padding: 8px;
+      margin: 10px;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #resultadoPrimos {
+      margin-top: 20px;
+      text-align: left;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Números Primos em um Intervalo</h1>
+
+    <div>
+      <label>Início:</label>
+      <input type="number" id="inicio" placeholder="Ex: 1">
+      <label>Fim:</label>
+      <input type="number" id="fim" placeholder="Ex: 50">
+    </div>
+
+    <button onclick="verificarPrimos()">Verificar</button>
+
+    <div id="resultadoPrimos"></div>
+  </div>
+
+  <script>
+    // Função para verificar se um número é primo
+    function ehPrimo(n) {
+      if (n < 2) return false;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    // Função principal para encontrar primos no intervalo
+    function verificarPrimos() {
+      let inicio = parseInt(document.getElementById("inicio").value);
+      let fim = parseInt(document.getElementById("fim").value);
+      const resultadoDiv = document.getElementById("resultadoPrimos");
+
+      // Validação dos campos
+      if (isNaN(inicio) || isNaN(fim)) {
+        resultadoDiv.innerHTML = "<p style='color:red;'>Por favor, insira dois números válidos.</p>";
+        return;
+      }
+
+      // Normaliza intervalo (garante inicio <= fim)
+      if (inicio > fim) {
+        [inicio, fim] = [fim, inicio];
+      }
+
+      const primos = [];
+
+      for (let i = inicio; i <= fim; i++) {
+        if (ehPrimo(i)) {
+          primos.push(i);
+        }
+      }
+
+      if (primos.length === 0) {
+        resultadoDiv.innerHTML = `<p>Nenhum número primo encontrado entre ${inicio} e ${fim}.</p>`;
+      } else {
+        resultadoDiv.innerHTML = `<p>Primos entre ${inicio} e ${fim}:</p><p>${primos.join(", ")}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio de Números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input {
+      width: 80px;
+      padding: 5px;
+      margin: 5px;
+      text-align: center;
+    }
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #f9f9f9;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    p#resultado {
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sorteio de Números</h1>
+
+    <div>
+      <label>Mínimo:</label>
+      <input type="number" id="min" value="1">
+      <label>Máximo:</label>
+      <input type="number" id="max" value="100">
+    </div>
+
+    <button onclick="sortear()">Sortear</button>
+
+    <p id="resultado">Clique em "Sortear" para começar!</p>
+
+    <ul id="lista"></ul>
+  </div>
+
+  <script>
+    // Array de objetos para armazenar números e contagens
+    const numerosSorteados = [];
+
+    function sortear() {
+      const min = parseInt(document.getElementById('min').value);
+      const max = parseInt(document.getElementById('max').value);
+
+      // Validação
+      if (isNaN(min) || isNaN(max) || min >= max) {
+        alert("Informe valores válidos! (mínimo menor que máximo)");
+        return;
+      }
+
+      // Gera número aleatório no intervalo informado
+      const numero = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      // Procura se o número já foi sorteado
+      let existente = numerosSorteados.find(item => item.numero === numero);
+
+      if (existente) {
+        existente.quantidade++;
+      } else {
+        numerosSorteados.push({ numero, quantidade: 1 });
+      }
+
+      // Atualiza resultado e lista
+      document.getElementById('resultado').textContent = `Número sorteado: ${numero}`;
+      atualizarLista();
+    }
+
+    function atualizarLista() {
+      const lista = document.getElementById('lista');
+      lista.innerHTML = "";
+
+      numerosSorteados.sort((a, b) => a.numero - b.numero);
+
+      for (const item of numerosSorteados) {
+        const li = document.createElement('li');
+        li.textContent = `Número ${item.numero} — sorteado ${item.quantidade} vez(es)`;
+        lista.appendChild(li);
+      }
+    }
+  </script>
+</body>
+</html>

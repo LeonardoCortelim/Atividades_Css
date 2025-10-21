@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Palíndromos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input {
+      width: 80%;
+      padding: 8px;
+      margin: 10px 0;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .sim {
+      color: green;
+    }
+
+    .nao {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Verificador de Palíndromos</h1>
+
+    <input type="text" id="palavra" placeholder="Digite uma palavra...">
+    <br>
+    <button onclick="verificarPalindromo()">Verificar</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function verificarPalindromo() {
+      const palavra = document.getElementById("palavra").value.trim().toLowerCase();
+      const resultado = document.getElementById("resultado");
+
+      if (palavra === "") {
+        resultado.innerHTML = "<span class='nao'>Por favor, digite uma palavra.</span>";
+        return;
+      }
+
+      // Remove espaços e acentos
+      const normalizada = palavra
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "");
+
+      const invertida = normalizada.split("").reverse().join("");
+
+      if (normalizada === invertida) {
+        resultado.innerHTML = `<span class='sim'>"${palavra}" é um palíndromo ✅</span>`;
+      } else {
+        resultado.innerHTML = `<span class='nao'>"${palavra}" não é um palíndromo ❌</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
